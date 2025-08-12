@@ -1,0 +1,81 @@
+:root{
+  --bg-dark: #0f1724;
+  --card: rgba(255,255,255,0.06);
+  --accent: #ff8c00;
+  --muted: rgba(255,255,255,0.65);
+  --glass: rgba(255,255,255,0.04);
+}
+
+*{box-sizing:border-box}
+html,body{height:100%;margin:0;font-family:Inter,Segoe UI,system-ui,Arial,sans-serif;background:linear-gradient(180deg,#071226 0%, #0f1724 100%);color:#e6eef6}
+.app{max-width:920px;margin:28px auto;padding:18px}
+header{display:flex;justify-content:space-between;align-items:center;margin-bottom:14px}
+h1{margin:0;font-size:20px;letter-spacing:0.2px}
+.controls{display:flex;gap:10px;align-items:center}
+/* theme toggle look */
+.theme-switch{position:relative;display:inline-block;width:46px;height:26px}
+.theme-switch input{opacity:0;width:0;height:0}
+.slider{position:absolute;cursor:pointer;top:0;left:0;right:0;bottom:0;background:#9aa7b6;border-radius:34px;transition:.3s}
+.slider:before{position:absolute;content:"";height:20px;width:20px;left:3px;top:3px;background:white;border-radius:50%;transition:.3s}
+.theme-switch input:checked + .slider{background:var(--accent)}
+.theme-switch input:checked + .slider:before{transform:translateX(20px)}
+
+main{display:grid;grid-template-columns:1fr 360px;gap:18px}
+@media (max-width:900px){main{grid-template-columns:1fr;}}
+.form-card, .records-card{
+  background:var(--card);
+  padding:16px;border-radius:12px;box-shadow:0 6px 20px rgba(2,6,23,0.6);
+  backdrop-filter: blur(6px);
+}
+
+.inputs{display:flex;flex-direction:column;gap:10px}
+input[type="text"], input[type="date"]{
+  padding:10px;border-radius:8px;border:1px solid rgba(255,255,255,0.06);background:transparent;color:inherit;font-size:15px
+}
+.row{display:flex;gap:8px}
+button{padding:10px 12px;border-radius:8px;border:0;background:var(--accent);color:#111;font-weight:600;cursor:pointer}
+button.muted{background:transparent;border:1px solid rgba(255,255,255,0.06);color:var(--muted)}
+button:active{transform:translateY(1px)}
+
+.result{margin-top:12px;background:var(--glass);padding:12px;border-radius:10px}
+.age-text{font-weight:700;font-size:16px}
+#countdown{margin-top:8px;font-size:14px;color:var(--muted)}
+#zodiac{margin-top:8px;font-size:14px}
+.personality{margin-top:6px;font-style:italic;color:var(--muted)}
+
+/* Records */
+.records-card h2{margin:0 0 8px 0}
+#recordsList{list-style:none;margin:0;padding:0;max-height:420px;overflow:auto}
+#recordsList li{display:flex;justify-content:space-between;align-items:center;padding:8px;border-radius:8px;background:rgba(255,255,255,0.03);margin-bottom:8px}
+.record-left{display:flex;flex-direction:column}
+.record-name{font-weight:700}
+.record-meta{font-size:12px;color:var(--muted)}
+.record-actions{display:flex;gap:6px}
+.small-btn{background:transparent;border:1px solid rgba(255,255,255,0.06);padding:6px 8px;border-radius:6px;color:var(--muted);cursor:pointer}
+
+/* Footer */
+footer{text-align:center;margin-top:14px;color:var(--muted)}
+
+/* Romantic theme hearts */
+#hearts{position:fixed;left:0;top:0;right:0;bottom:0;pointer-events:none;overflow:hidden;z-index:1000}
+.heart{
+  position:absolute;width:18px;height:18px;background:transparent;
+  transform:translate(-50%,-50%) rotate(45deg);
+}
+.heart:before,.heart:after{
+  content:"";position:absolute;width:18px;height:18px;background:radial-gradient(circle at 30% 30%, #ffccd5 0%, #ff6b9a 60%);
+  border-radius:50%;
+}
+.heart:after{left:9px}
+
+/* Light theme overrides */
+.light-mode body, .light-mode .app{color:#0f1724}
+.light-mode{background:linear-gradient(180deg,#f8fafc 0%, #e6eef6 100%)}
+.light-mode .form-card, .light-mode .records-card{background:rgba(15,23,36,0.06);color:#0f1724}
+.light-mode button{color:#fff}
+
+/* Romantic theme */
+.romantic-mode{background:linear-gradient(180deg,#2b021b 0%, #3b0529 100%)}
+.romantic-mode .form-card, .romantic-mode .records-card{background:rgba(255,255,255,0.04)}
+.romantic-mode .age-text{color:#ffdbe6}
+.romantic-mode button{background:#ff6b9a}

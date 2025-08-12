@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Beautiful Age Calculator ✨</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="app">
+    <header>
+      <h1>Beautiful Age Calculator</h1>
+      <!--<div class="controls">
+        <label class="theme-switch">
+          <input id="themeToggle" type="checkbox" />
+          <span class="slider"></span>
+        </label>
+         <select id="themeSelect" aria-label="Theme select">
+          <option value="light">Light</option>
+          <option value="dark" selected>Dark</option>
+          <option value="romantic">Romantic</option>
+        </select> 
+      </div>-->
+    </header> 
+
+    <main>
+      <section class="form-card">
+        <div class="inputs">
+          <input id="name" type="text" placeholder="Enter full name" autocomplete="name"/>
+          <input id="dob" type="date" />
+          <div class="row">
+            <button id="calcBtn">Calculate Age</button>
+            <button id="clearBtn" class="muted">Clear</button>
+          </div>
+        </div>
+
+        <div class="result" id="resultBox" aria-live="polite">
+          <div id="ageText" class="age-text">—</div>
+          <div id="countdown">Next birthday in: —</div>
+          <div id="zodiac">Zodiac: —</div>
+          <div id="personality" class="personality">—</div>
+        </div>
+      </section>
+
+      <section class="records-card">
+        <h2>Saved Records</h2>
+        <div id="recordsEmpty" class="muted">No saved records yet.</div>
+        <ul id="recordsList"></ul>
+      </section>
+    </main>
+
+    <footer>
+      <small>Made with ❤️ — Isha Maurya</small>
+    </footer>
+  </div>
+
+  <!-- Canvas for confetti -->
+  <canvas id="confettiCanvas"></canvas>
+
+  <!-- Hearts container for romantic theme -->
+  <div id="hearts"></div>
+
+  <script src="script.js"></script>
+</body>
+</html>
